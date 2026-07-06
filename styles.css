@@ -157,6 +157,18 @@ h3 {
   font-size: 18px;
 }
 
+.disclaimer {
+  max-width: 680px;
+  margin-top: 18px;
+  padding: 12px 14px;
+  color: #5d3425;
+  background: #fff0e7;
+  border: 1px solid #f2c2aa;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -380,8 +392,21 @@ button {
 }
 
 .timeline-copy p {
-  margin-bottom: 0;
+  margin-bottom: 16px;
   color: rgba(255, 255, 255, 0.82);
+}
+
+.deliverable {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  color: var(--charcoal);
+  background: #fff8f2;
+  border-radius: 8px;
+}
+
+.deliverable strong {
+  color: var(--orange-dark);
 }
 
 .checklist {
@@ -478,6 +503,51 @@ pre {
   font-size: 14px;
 }
 
+.examples {
+  background: #fff4ea;
+}
+
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.example-card {
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(64, 38, 29, 0.07);
+}
+
+.example-card .tag {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 4px 9px;
+  color: white;
+  background: var(--blue);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.example-card.weak .tag {
+  background: #9a3412;
+}
+
+.example-card.strong .tag {
+  background: var(--teal);
+}
+
+.example-card ul,
+.veeva-checks ul {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding-left: 20px;
+}
+
 .veeva {
   background: #f9fbfb;
 }
@@ -490,6 +560,20 @@ pre {
 
 .process-grid article {
   background: white;
+}
+
+.veeva-checks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.veeva-checks article {
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
 .skills {
@@ -523,6 +607,33 @@ pre {
 .row:not(.header) span:first-child {
   color: var(--orange-dark);
   font-weight: 800;
+}
+
+.outputs {
+  background: #fff8f2;
+}
+
+.output-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.output-grid article {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 168px;
+  padding: 18px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.output-grid strong {
+  color: var(--gsk-orange);
+  font-size: 28px;
+  line-height: 1;
 }
 
 footer {
@@ -561,8 +672,14 @@ footer p {
     min-height: 430px;
   }
 
-  .process-grid {
+  .process-grid,
+  .example-grid,
+  .output-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .veeva-checks {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -575,16 +692,32 @@ footer p {
     min-width: 0;
   }
 
+  .brand-mark {
+    width: 52px;
+    height: 38px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  nav {
+    gap: 4px;
+  }
+
   nav a {
-    padding: 7px 9px;
+    padding: 6px 8px;
+    font-size: 13px;
   }
 
   h1 {
-    font-size: 38px;
+    font-size: 34px;
   }
 
   .definition-list,
   .process-grid,
+  .example-grid,
+  .output-grid,
   .principles article,
   .row {
     grid-template-columns: 1fr;
@@ -604,12 +737,17 @@ footer p {
     padding: 16px;
   }
 
+  pre {
+    max-height: 520px;
+    min-height: 0;
+  }
+
   .hero-visual {
-    min-height: 370px;
+    min-height: 330px;
   }
 
   .orbit-card {
-    width: 185px;
+    width: 172px;
     padding: 14px;
   }
 
