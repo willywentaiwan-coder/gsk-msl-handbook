@@ -16,21 +16,31 @@ tabs.forEach((tab) => {
 
 checks.forEach((checkbox, index) => {
   const storageKey = `gsk-msl-check-${index}`;
-  checkbox.checked = localStorage.getItem(storageKey) === "true";
+  try {
+    checkbox.checked = localStorage.getItem(storageKey) === "true";
+  } catch {
+    checkbox.checked = false;
+  }
 
   checkbox.addEventListener("change", () => {
-    localStorage.setItem(storageKey, checkbox.checked);
+    try {
+      localStorage.setItem(storageKey, checkbox.checked);
+    } catch {
+      // Keep the checklist usable even when storage is blocked.
+    }
   });
 });
 
-copyButton.addEventListener("click", async () => {
-  try {
-    await navigator.clipboard.writeText(template.textContent);
-    copyButton.textContent = "Copied";
-    setTimeout(() => {
-      copyButton.textContent = "Copy";
-    }, 1600);
-  } catch {
-    copyButton.textContent = "Select";
-  }
-});
+if (copyButton && template) {
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(template.textContent);
+      copyButton.textContent = "Copied";
+      setTimeout(() => {
+        copyButton.textContent = "Copy";
+      }, 1600);
+    } catch {
+      copyButton.textContent = "Select";
+    }
+  });
+}
